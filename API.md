@@ -149,6 +149,12 @@ Example response:
 }
 ```
 
-## GET `/api/colorTokens/export`
+## GET `/api/colorTokens/export/formats`
 
-Returns all color tokens in a given format. You can specify the format by passing a `type` query parameter. To download the tokens as a file, add a `download=1` query parameter.
+Returns an array of all supported formats and their metadata.
+
+## GET `/api/colorTokens/export/[format]`
+
+Returns all color tokens in a given format. To download the tokens as a file, add a `download=1` query parameter.
+
+Currently supported formats: `css`, `scss`, `jss`

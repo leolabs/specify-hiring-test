@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { parsers } from "../../../util/parsers";
-import prisma from "../../../util/prisma";
-import { dbToColorToken } from "../../../util/schemas/colorToken";
+import { parsers } from "../../../../util/parsers";
+import prisma from "../../../../util/prisma";
+import { dbToColorToken } from "../../../../util/schemas/colorToken";
 
 /**
  * Exports all color tokens to a given format.
  * Downloads the file if you pass it a "download" param.
  */
 const exportColorTokens = async (req: NextApiRequest, res: NextApiResponse) => {
-  const parser = parsers[req.query.type as string];
+  const parser = parsers[req.query.format as string];
 
   if (!parser) {
     res.status(400).json({
