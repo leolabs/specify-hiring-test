@@ -5,6 +5,8 @@ import copy from "copy-to-clipboard";
 import React from "react";
 import { Color, colorToRgba } from "../../util/color";
 
+import checkers from "./transparent-checkers.svg";
+
 interface Props {
   color: Color;
 }
@@ -23,16 +25,25 @@ export const ColorBox: React.FC<Props> = ({ color }) => {
   };
 
   return (
-    <Tooltip label="Tap to copy">
-      <Box
-        onClick={copyToClipboard}
-        backgroundColor={rgba}
-        cursor="pointer"
-        borderRadius="4"
-        shadow="inner"
-        w="8"
-        h="8"
-      />
-    </Tooltip>
+    <div className="color-box">
+      <Tooltip label="Tap to copy">
+        <Box
+          onClick={copyToClipboard}
+          backgroundColor={rgba}
+          cursor="pointer"
+          w="8"
+          h="8"
+        />
+      </Tooltip>
+
+      <style jsx>{`
+        .color-box {
+          overflow: hidden;
+          border-radius: 0.4rem;
+          background: #ddd url(${checkers.src});
+          background-size: 11px;
+        }
+      `}</style>
+    </div>
   );
 };

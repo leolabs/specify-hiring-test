@@ -16,7 +16,7 @@ import { ColorToken } from "@prisma/client";
 
 import { colorToRgba } from "../../util/color";
 import { dbToColorToken } from "../../util/schemas/color-token";
-import { ColorBox } from "./color-box";
+import { ColorBox } from "../color-box/color-box";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useSWRConfig } from "swr";
 import { ColorTokenList } from "../../pages/api/colorTokens";
