@@ -12,7 +12,7 @@ export interface Parser {
   name: string;
   mimeType: string;
   fileName: string;
-  parser: ParserFunction;
+  parse: ParserFunction;
 }
 
 export const parsers: Record<string, Parser> = {

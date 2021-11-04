@@ -36,5 +36,5 @@ export const jss: Parser = {
   name: "JSS",
   mimeType: "application/javascript",
   fileName: "colorTokens.js",
-  parser: parseToJss,
+  parse: parseToJss,
 };

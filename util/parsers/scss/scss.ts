@@ -63,5 +63,5 @@ export const scss: Parser = {
   name: "SCSS",
   mimeType: "text/scss",
   fileName: "colorTokens.scss",
-  parser: parseToScss,
+  parse: parseToScss,
 };

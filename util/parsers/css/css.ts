@@ -26,5 +26,5 @@ export const css: Parser = {
   name: "CSS",
   mimeType: "text/css",
   fileName: "colorTokens.css",
-  parser: parseToCss,
+  parse: parseToCss,
 };
