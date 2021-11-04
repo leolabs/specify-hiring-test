@@ -1,8 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { parsers } from "../../../../util/parsers";
+import { ApiResponse } from "../../../../types/api";
+import { Parser, parsers } from "../../../../util/parsers";
+
+type Format = Omit<Parser, "parse"> & { format: string };
+
+export interface FormatList {
+  formats: Format[];
+}
 
 /** Lists all supported parser formats and their metadata */
-const listFormats = (req: NextApiRequest, res: NextApiResponse) => {
+const listFormats = (req: NextApiRequest, res: ApiResponse<FormatList>) => {
   const formats = Object.entries(parsers).map(([key, value]) => {
     const { parse, ...meta } = value;
 

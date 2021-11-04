@@ -1,17 +1,22 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { SingleColorToken } from ".";
+import { ApiResponse } from "../../../types/api";
 import prisma from "../../../util/prisma";
 
 /**
  * Returns a single color token as a JSON object.
  */
-const getColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
+const getColorToken = async (
+  req: NextApiRequest,
+  res: ApiResponse<SingleColorToken>
+) => {
   try {
     const colorToken = await prisma.colorToken.findUnique({
       where: { id: req.query.tokenId as string },
     });
 
     if (!colorToken) {
-      res.status(404).json({ message: "Color token not found" });
+      res.status(404).json({ error: "Color token not found" });
     } else {
       res.status(200).json({ colorToken });
     }
@@ -23,7 +28,10 @@ const getColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
 /**
  * Updates a color token.
  */
-const patchColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
+const patchColorToken = async (
+  req: NextApiRequest,
+  res: ApiResponse<SingleColorToken>
+) => {
   try {
     const colorToken = await prisma.colorToken.update({
       where: { id: req.query.tokenId as string },
@@ -31,7 +39,7 @@ const patchColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
     });
 
     if (!colorToken) {
-      res.status(404).json({ message: "Color token not found" });
+      res.status(404).json({ error: "Color token not found" });
     } else {
       res.status(200).json({ colorToken });
     }

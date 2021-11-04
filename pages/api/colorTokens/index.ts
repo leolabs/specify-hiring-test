@@ -1,10 +1,23 @@
+import { ColorToken } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
+import { ApiResponse } from "../../../types/api";
 import prisma from "../../../util/prisma";
+
+export interface SingleColorToken {
+  colorToken: ColorToken;
+}
+
+export interface ColorTokenList {
+  colorTokens: ColorToken[];
+}
 
 /**
  * Creates a new token in the database and returns it as a JSON object
  */
-const createColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
+const createColorToken = async (
+  req: NextApiRequest,
+  res: ApiResponse<SingleColorToken>
+) => {
   try {
     const createdColorToken = await prisma.colorToken.create({
       data: req.body,
@@ -18,7 +31,10 @@ const createColorToken = async (req: NextApiRequest, res: NextApiResponse) => {
 /**
  * Returns all color tokens as a JSON array
  */
-const listColorTokens = async (req: NextApiRequest, res: NextApiResponse) => {
+const listColorTokens = async (
+  req: NextApiRequest,
+  res: ApiResponse<ColorTokenList>
+) => {
   try {
     const colorTokens = await prisma.colorToken.findMany();
     res.status(200).json({ colorTokens });
