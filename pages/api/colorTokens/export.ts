@@ -12,7 +12,9 @@ const exportColorTokens = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!parser) {
     res.status(400).json({
-      message: "Missing or invalid type query parameter",
+      message:
+        "Missing or invalid type query parameter. Currently supported: " +
+        Object.keys(parsers).join(", "),
     });
     return;
   }
