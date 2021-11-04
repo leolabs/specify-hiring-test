@@ -10,6 +10,7 @@ export type ParserFunction = (input: ColorToken[]) => string;
 
 export interface Parser {
   name: string;
+  language: string;
   mimeType: string;
   fileName: string;
   parse: ParserFunction;

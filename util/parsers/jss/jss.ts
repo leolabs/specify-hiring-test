@@ -34,6 +34,7 @@ export const parseToJss: ParserFunction = (input) => {
 
 export const jss: Parser = {
   name: "JSS",
+  language: "js",
   mimeType: "application/javascript",
   fileName: "colorTokens.js",
   parse: parseToJss,

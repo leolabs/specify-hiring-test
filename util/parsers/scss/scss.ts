@@ -40,7 +40,7 @@ const COLOR_FUNCTION = [
 export const createColorMap = (colors: ColorToken[], name = "colors") => {
   const colorLines = colors.map(({ name, value }) => {
     const colorName = kebapCase(name).replace("colors-", "");
-    return [`/* ${name} */`, `${colorName}: ${colorToRgba(value)}`].join("\n");
+    return [`// ${name}`, `${colorName}: ${colorToRgba(value)}`].join("\n");
   });
 
   return [`$${name}: (`, indentLines(colorLines.join(",\n\n"), 2), `);`].join(
@@ -61,6 +61,7 @@ export const parseToScss: ParserFunction = (input) => {
 
 export const scss: Parser = {
   name: "SCSS",
+  language: "scss",
   mimeType: "text/scss",
   fileName: "colorTokens.scss",
   parse: parseToScss,

@@ -2,10 +2,10 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { ApiResponse } from "../../../../types/api";
 import { Parser, parsers } from "../../../../util/parsers";
 
-type Format = Omit<Parser, "parse"> & { format: string };
+export type ParserFormat = Omit<Parser, "parse"> & { format: string };
 
 export interface FormatList {
-  formats: Format[];
+  formats: ParserFormat[];
 }
 
 /** Lists all supported parser formats and their metadata */

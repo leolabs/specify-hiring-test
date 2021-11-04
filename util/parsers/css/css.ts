@@ -24,6 +24,7 @@ export const parseToCss: ParserFunction = (input) => {
 
 export const css: Parser = {
   name: "CSS",
+  language: "css",
   mimeType: "text/css",
   fileName: "colorTokens.css",
   parse: parseToCss,
