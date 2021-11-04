@@ -1,5 +1,5 @@
 import { colorTokens } from "../mock-data/colorTokens";
-import { createColorMap, scss } from "./scss";
+import { createColorMap } from "./scss";
 
 describe("SCSS parser", () => {
   it("should convert a single token to the correct SCSS string", () => {
