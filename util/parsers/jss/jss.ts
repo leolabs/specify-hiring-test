@@ -1,4 +1,4 @@
-import { Parser } from "..";
+import { Parser, ParserFunction } from "..";
 import { colorToRgba } from "../../color";
 import { camelCase, indentLines, uncapitalize } from "../../strings";
 
@@ -16,7 +16,7 @@ import { camelCase, indentLines, uncapitalize } from "../../strings";
  * Converts a given array of ColorTokens into
  * a JS object that can be used e.g. with JSS.
  */
-export const jss: Parser = (input) => {
+export const parseToJss: ParserFunction = (input) => {
   const colorLines = input.map(({ name, value }) => {
     const colorName = camelCase(name).replace("colors", "");
     return [
@@ -30,4 +30,11 @@ export const jss: Parser = (input) => {
     indentLines(colorLines.join(",\n\n")),
     "};",
   ].join("\n");
+};
+
+export const jss: Parser = {
+  name: "JSS",
+  mimeType: "application/javascript",
+  fileName: "colorTokens.js",
+  parser: parseToJss,
 };

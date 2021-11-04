@@ -1,4 +1,4 @@
-import { Parser } from "..";
+import { Parser, ParserFunction } from "..";
 import { colorToRgba } from "../../color";
 import { indentLines, kebapCase } from "../../strings";
 
@@ -13,11 +13,18 @@ import { indentLines, kebapCase } from "../../strings";
 // });
 
 /** Converts a given array of ColorTokens into CSS variables. */
-export const css: Parser = (input) => {
+export const parseToCss: ParserFunction = (input) => {
   const colorVariables = input.map(({ name, value }) =>
     [`/* ${name} */`, `--${kebapCase(name)}: ${colorToRgba(value)};`].join("\n")
   );
 
   const css = indentLines(colorVariables.join("\n\n"));
   return `:root {\n${indentLines(css)}\n}`;
+};
+
+export const css: Parser = {
+  name: "CSS",
+  mimeType: "text/css",
+  fileName: "colorTokens.css",
+  parser: parseToCss,
 };

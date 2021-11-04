@@ -1,4 +1,4 @@
-import { Parser } from "..";
+import { Parser, ParserFunction } from "..";
 import { colorToRgba } from "../../color";
 import { ColorToken } from "../../schemas/colorToken";
 import { indentLines, kebapCase } from "../../strings";
@@ -49,7 +49,7 @@ export const createColorMap = (colors: ColorToken[], name = "colors") => {
 };
 
 /** Converts a given array of ColorTokens into an SCSS map of colors. */
-export const scss: Parser = (input) => {
+export const parseToScss: ParserFunction = (input) => {
   return [
     `@use "sass:map";`,
     ``,
@@ -57,4 +57,11 @@ export const scss: Parser = (input) => {
     ``,
     COLOR_FUNCTION,
   ].join("\n");
+};
+
+export const scss: Parser = {
+  name: "SCSS",
+  mimeType: "text/scss",
+  fileName: "colorTokens.scss",
+  parser: parseToScss,
 };

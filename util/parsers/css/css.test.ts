@@ -1,5 +1,5 @@
 import { colorTokens } from "../mock-data/colorTokens";
-import { css } from "./css";
+import { parseToCss } from "./css";
 
 describe("CSS parser", () => {
   it("should convert a single token to the correct CSS string", () => {
@@ -10,7 +10,7 @@ describe("CSS parser", () => {
       "}",
     ].join("\n");
 
-    expect(css([colorTokens[0]])).toBe(result);
+    expect(parseToCss([colorTokens[0]])).toBe(result);
   });
 
   it("should convert multiple tokens to the correct CSS string", () => {
@@ -24,6 +24,6 @@ describe("CSS parser", () => {
       "}",
     ].join("\n");
 
-    expect(css([colorTokens[0], colorTokens[1]])).toBe(result);
+    expect(parseToCss([colorTokens[0], colorTokens[1]])).toBe(result);
   });
 });

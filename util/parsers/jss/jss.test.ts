@@ -1,5 +1,5 @@
 import { colorTokens } from "../mock-data/colorTokens";
-import { jss } from "./jss";
+import { parseToJss } from "./jss";
 
 describe("JSS parser", () => {
   it("should convert a single token to the correct JSS string", () => {
@@ -10,7 +10,7 @@ describe("JSS parser", () => {
       `};`,
     ].join("\n");
 
-    expect(jss([colorTokens[0]])).toBe(result);
+    expect(parseToJss([colorTokens[0]])).toBe(result);
   });
 
   it("should convert multiple tokens to the correct JSS string", () => {
@@ -24,6 +24,6 @@ describe("JSS parser", () => {
       `};`,
     ].join("\n");
 
-    expect(jss([colorTokens[0], colorTokens[1]])).toBe(result);
+    expect(parseToJss([colorTokens[0], colorTokens[1]])).toBe(result);
   });
 });
