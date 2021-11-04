@@ -1,5 +1,4 @@
 export class FetchError extends Error {
-  info: string;
   status: number;
 }
 
