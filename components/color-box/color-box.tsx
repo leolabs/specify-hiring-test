@@ -40,7 +40,7 @@ export const ColorBox: React.FC<Props> = ({ color }) => {
         .color-box {
           overflow: hidden;
           border-radius: 0.4rem;
-          background: #ddd url(${checkers.src});
+          background: #eee url(${checkers.src});
           background-size: 11px;
         }
       `}</style>
