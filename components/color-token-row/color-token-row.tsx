@@ -1,17 +1,6 @@
 import React, { useState } from "react";
-import { Box, Text } from "@chakra-ui/layout";
-import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
-  Button,
-  HStack,
-  IconButton,
-  Spacer,
-} from "@chakra-ui/react";
+import { Text } from "@chakra-ui/layout";
+import { HStack, IconButton, Spacer } from "@chakra-ui/react";
 import { ColorToken } from "@prisma/client";
 
 import { colorToRgba } from "../../util/color";
