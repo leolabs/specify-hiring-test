@@ -1,12 +1,5 @@
 import { ColorToken as DbColorToken } from ".prisma/client";
-
-/** A single RGBA color vector */
-export interface Color {
-  r: number;
-  g: number;
-  b: number;
-  a: number;
-}
+import { Color } from "../color";
 
 /**
  * A single, spec-compliant color token.
