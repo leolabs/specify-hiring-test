@@ -13,11 +13,11 @@ datasource db {
 model ColorToken {
   id         String   @id @default(cuid())
   name       String
-  colorRed   Decimal
-  colorGreen Decimal
-  colorBlue  Decimal
-  colorAlpha Decimal
-  metadata   Json
+  colorRed   Int
+  colorGreen Int
+  colorBlue  Int
+  colorAlpha Float
+  meta       Json?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now())
 }
