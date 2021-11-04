@@ -1,4 +1,4 @@
-import { ColorToken } from "../schemas/colorToken";
+import { ColorToken } from "../schemas/color-token";
 import { css } from "./css/css";
 import { jss } from "./jss/jss";
 import { scss } from "./scss/scss";

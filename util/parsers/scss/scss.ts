@@ -1,6 +1,6 @@
 import { Parser, ParserFunction } from "..";
 import { colorToRgba } from "../../color";
-import { ColorToken } from "../../schemas/colorToken";
+import { ColorToken } from "../../schemas/color-token";
 import { indentLines, kebapCase } from "../../strings";
 
 // Example of an SCSS file:

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { ApiResponse } from "../../../../types/api";
 import { parsers } from "../../../../util/parsers";
 import prisma from "../../../../util/prisma";
-import { dbToColorToken } from "../../../../util/schemas/colorToken";
+import { dbToColorToken } from "../../../../util/schemas/color-token";
 
 /**
  * Exports all color tokens to a given format.

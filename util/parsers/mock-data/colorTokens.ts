@@ -1,4 +1,4 @@
-import { ColorToken } from "../../schemas/colorToken";
+import { ColorToken } from "../../schemas/color-token";
 
 export const colorTokens: ColorToken[] = [
   {
