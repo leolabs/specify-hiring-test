@@ -20,7 +20,7 @@ const createColorToken = async (
 ) => {
   try {
     const createdColorToken = await prisma.colorToken.create({
-      data: req.body,
+      data: JSON.parse(req.body),
     });
     res.status(200).json({ colorToken: createdColorToken });
   } catch (e) {

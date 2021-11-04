@@ -8,6 +8,7 @@ import { HStack, IconButton } from "@chakra-ui/react";
 
 import { ColorTokenRow } from "../components/color-token-row/color-token-row";
 import { ExportModal } from "../components/export-modal/export-modal";
+import { NewTokenModal } from "../components/new-token-modal/new-token-modal";
 import { useColorTokens } from "../hooks/use-color-tokens";
 
 const TokenList: React.FC = () => {
@@ -36,6 +37,7 @@ const TokenList: React.FC = () => {
 
 export default function ColorTokens() {
   const [showExportModal, setShowExportModal] = useState(false);
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   return (
     <Container>
@@ -46,10 +48,14 @@ export default function ColorTokens() {
       <HStack>
         <Heading py="8">ACME Color Tokens</Heading>
         <Spacer />
-        <IconButton icon={<AddIcon />} aria-label="Add a color token" />
         <IconButton
-          icon={<DownloadIcon />}
+          onClick={() => setShowCreateModal(true)}
+          icon={<AddIcon />}
+          aria-label="Add a color token"
+        />
+        <IconButton
           onClick={() => setShowExportModal(true)}
+          icon={<DownloadIcon />}
           aria-label="Export color tokens"
         />
       </HStack>
@@ -59,6 +65,11 @@ export default function ColorTokens() {
       <ExportModal
         isOpen={showExportModal}
         onClose={() => setShowExportModal(false)}
+      />
+
+      <NewTokenModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
       />
     </Container>
   );
