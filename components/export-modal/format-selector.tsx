@@ -1,14 +1,11 @@
+import React, { useEffect } from "react";
 import { Alert } from "@chakra-ui/alert";
 import { Center } from "@chakra-ui/layout";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
-import React, { useEffect } from "react";
-import useSWR from "swr";
-import type {
-  FormatList,
-  ParserFormat,
-} from "../../pages/api/colorTokens/export/formats";
-import { fetcher, FetchError } from "../../util/swr-fetcher";
+
+import { useExportFormats } from "../../hooks/use-export-formats";
+import type { ParserFormat } from "../../pages/api/colorTokens/export/formats";
 
 interface Props {
   selectedFormat: ParserFormat;
@@ -19,10 +16,7 @@ export const FormatSelector: React.FC<Props> = ({
   selectedFormat,
   onFormatChange,
 }) => {
-  const { data, error, isValidating } = useSWR<FormatList, FetchError>(
-    "/api/colorTokens/export/formats",
-    fetcher
-  );
+  const { data, error, isValidating } = useExportFormats();
 
   // When the list of formats is loaded, automtically select the first format
   useEffect(() => {

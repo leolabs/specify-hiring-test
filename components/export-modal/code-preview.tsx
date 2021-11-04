@@ -1,24 +1,18 @@
 import React from "react";
-import useSWR from "swr";
 import Highlight from "react-highlight";
 import { Alert } from "@chakra-ui/alert";
 import { Box, Center } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 
-import { fetcher, FetchError } from "../../util/swr-fetcher";
 import { ParserFormat } from "../../pages/api/colorTokens/export/formats";
+import { useExportPreview } from "../../hooks/use-export-preview";
 
 interface Props {
   format: ParserFormat;
 }
 
 export const CodePreview: React.FC<Props> = ({ format }) => {
-  const { data, error, isValidating } = useSWR<string, FetchError>(
-    `/api/colorTokens/export/${format?.format ?? ""}`,
-    (url) => fetcher(url, "text")
-  );
-
-  console.log({ data, error, isValidating });
+  const { data, error, isValidating } = useExportPreview(format?.format);
 
   if (error) {
     return <Alert>Error: {error.message}</Alert>;

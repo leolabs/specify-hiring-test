@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import useSWR from "swr";
 import { Center, Container, Heading, List, Spacer } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import { AddIcon, DownloadIcon } from "@chakra-ui/icons";
-
-import { fetcher, FetchError } from "../util/swr-fetcher";
-import type { ColorTokenList } from "./api/colorTokens";
 import { Alert } from "@chakra-ui/alert";
-import { ColorTokenRow } from "../components/color-token-row/color-token-row";
 import { HStack, IconButton } from "@chakra-ui/react";
+
+import { ColorTokenRow } from "../components/color-token-row/color-token-row";
 import { ExportModal } from "../components/export-modal/export-modal";
+import { useColorTokens } from "../hooks/use-color-tokens";
 
 const TokenList: React.FC = () => {
-  const { data, error, isValidating } = useSWR<ColorTokenList, FetchError>(
-    "/api/colorTokens",
-    fetcher
-  );
+  const { data, error, isValidating } = useColorTokens();
 
   if (isValidating) {
     return (
