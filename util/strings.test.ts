@@ -4,6 +4,8 @@ import {
   pascalCase,
   extractWords,
   indentLines,
+  capitalize,
+  uncapitalize,
 } from "./strings";
 
 describe("extractWords", () => {
@@ -55,5 +57,17 @@ describe("indentLines", () => {
 
   it("should trim leading whitespace", () => {
     expect(indentLines("test\n  test", 2)).toBe("  test\n  test");
+  });
+});
+
+describe("capitalize", () => {
+  it("should upper-case the first letter of a string", () => {
+    expect(capitalize("test")).toBe("Test");
+  });
+});
+
+describe("uncapitalize", () => {
+  it("should lower-case the first letter of a string", () => {
+    expect(uncapitalize("Test")).toBe("Test");
   });
 });

@@ -14,6 +14,10 @@ export const extractWords = (str: string) =>
 export const capitalize = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
 
+/** Lower-cases the first letter of a string */
+export const uncapitalize = (str: string) =>
+  str.charAt(0).toLowerCase() + str.slice(1);
+
 /** Converts a string to PascalCase */
 export const pascalCase = (str: string) =>
   extractWords(str).map(capitalize).join("");
