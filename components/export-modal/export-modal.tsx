@@ -20,6 +20,25 @@ interface Props {
   onClose: () => void;
 }
 
+/** Returns an URL for accessing the color tokens in the given format. */
+const getUrlForFormat = (format: string) => {
+  const url = new URL(window.location.href);
+  url.pathname = "/api/colorTokens/export/" + format;
+  return url.toString();
+};
+
+/**
+ * Downloads the color tokens in the given format.
+ * This method uses the link's download attribute to
+ * trigger the download without opening a new tab.
+ */
+const downloadFormat = (format: string) => {
+  const downloadLink = document.createElement("a");
+  downloadLink.href = "/api/colorTokens/export/" + format + "?download=1";
+  downloadLink.download = "true";
+  downloadLink.click();
+};
+
 export const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const toast = useToast();
   const [selectedFormat, setSelectedFormat] = useState<ParserFormat | null>(
@@ -28,9 +47,7 @@ export const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
   const copyLink = () => {
     if (selectedFormat) {
-      const url = new URL(window.location.href);
-      url.pathname = "/api/colorTokens/export/" + selectedFormat.format;
-      copy(url.toString());
+      copy(getUrlForFormat(selectedFormat.format));
       toast({
         title: "Copied to clipboard",
         status: "success",
@@ -42,12 +59,7 @@ export const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
   const downloadFile = () => {
     if (selectedFormat) {
-      const downloadLink = document.createElement("a");
-      downloadLink.href =
-        "/api/colorTokens/export/" + selectedFormat.format + "?download=1";
-      downloadLink.target = "_blank";
-      downloadLink.download = "true";
-      downloadLink.click();
+      downloadFormat(selectedFormat.format);
       onClose();
     }
   };
@@ -68,10 +80,19 @@ export const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button onClick={copyLink} mr="4" variant="ghost">
+          <Button
+            disabled={!selectedFormat}
+            onClick={copyLink}
+            mr="4"
+            variant="ghost"
+          >
             Copy Link
           </Button>
-          <Button onClick={downloadFile} colorScheme="blue">
+          <Button
+            disabled={!selectedFormat}
+            onClick={downloadFile}
+            colorScheme="blue"
+          >
             Download as File
           </Button>
         </ModalFooter>
