@@ -5,9 +5,12 @@ export class FetchError extends Error {
 /**
  * A simple wrapper that makes the fetch API work with SWR.
  */
-export const fetcher = async (url: string) => {
+export const fetcher = async (
+  url: string,
+  format: "json" | "text" = "json"
+) => {
   const res = await fetch(url);
-  const content = await res.json();
+  const content = format === "json" ? await res.json() : await res.text();
 
   // If the status code is not in the range 200-299,
   // we still try to parse and throw it.
