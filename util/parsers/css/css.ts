@@ -2,6 +2,16 @@ import { Parser } from "..";
 import { colorToRgba } from "../../color";
 import { indentLines, kebapCase } from "../../strings";
 
+// Example of a CSS file:
+//
+// :root {
+//   /* Colors/Accent */
+//   --colors-accent: rgba(87, 124, 254, 1);
+//
+//   /* Colors/Black */
+//   --colors-black: rgba(30, 33, 43, 1);
+// });
+
 /** Converts a given array of ColorTokens into CSS variables. */
 export const css: Parser = (input) => {
   const colorVariables = input.map(({ name, value }) =>

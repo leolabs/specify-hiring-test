@@ -3,6 +3,28 @@ import { colorToRgba } from "../../color";
 import { ColorToken } from "../../schemas/colorToken";
 import { indentLines, kebapCase } from "../../strings";
 
+// Example of an SCSS file:
+//
+// @use "scss:map";
+//
+// $colors: (
+//   /* Colors/Accent */
+//   accent: rgba(87, 124, 254, 1),
+//
+//   /* Colors/Black */
+//   black: rgba(30, 33, 43, 1)
+// );
+//
+// @function get-color($name) {
+//   @if map-has-key($colors, $name) {
+//     @return map-get($colors, $name);
+//   } @else {
+//     @error "There is no \`#{$name}\` color";
+//   }
+// }
+
+// TODO for better DX: Use template strings with `common-tags` instead
+// of concatenating strings in an array.
 /** SCSS function that can be used to easily access a given color */
 const COLOR_FUNCTION = [
   `@function get-color($name) {`,
