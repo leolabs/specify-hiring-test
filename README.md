@@ -2,6 +2,8 @@
 
 This project is based on the Specify Hiring Tests. It's a simple web app that allows users to store, access, and export color tokens for their design system.
 
+You can visit a demo deployment here: https://specify-hiring-test.vercel.app
+
 ## Used Technologies
 
 - Frontend: React + NextJS
@@ -93,6 +95,10 @@ And last, the `scripts` folder contains scripts that can be run in the local dev
 ## API Documentation
 
 The API documentation is available in the [API.md](API.md) file.
+
+## Commit Guidelines
+
+Please use the [GitMoji](https://gitmoji.dev/) convention to categorize commits.
 
 ## Potential Future Improvements
 
