@@ -11,6 +11,15 @@ export const ColorTokenList: React.FC = () => {
     return <Alert status="error">Error: {error.message}</Alert>;
   }
 
+  if (data?.colorTokens.length === 0) {
+    return (
+      <Alert>
+        You don&apos;t have any color tokens yet. Tap the plus button to add
+        your first color token.
+      </Alert>
+    );
+  }
+
   if (data) {
     return (
       <List>
