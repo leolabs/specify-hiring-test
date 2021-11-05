@@ -2,7 +2,7 @@ import { ColorToken } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { ApiResponse } from "../../../types/api";
 import prisma from "../../../util/prisma";
-import { dbColorTokenSchema } from "../../../util/schemas/color-token";
+import { colorTokenSchema } from "../../../util/schemas/color-token";
 
 export interface SingleColorToken {
   colorToken: ColorToken;
@@ -21,7 +21,7 @@ const createColorToken = async (
 ) => {
   try {
     const data = req.body;
-    dbColorTokenSchema.validateSync(data);
+    colorTokenSchema.validateSync(data);
     const createdColorToken = await prisma.colorToken.create({
       data,
     });

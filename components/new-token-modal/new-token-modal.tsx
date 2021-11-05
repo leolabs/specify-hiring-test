@@ -19,7 +19,7 @@ import { ColorPicker } from "./color-picker";
 import { colorToRgba } from "../../util/schemas/color";
 import { useColorTokens } from "../../hooks/use-color-tokens";
 import { ApiError } from "../../types/api";
-import { colorTokenToDb } from "../../util/schemas/color-token";
+import { ColorToken } from "../../util/schemas/color-token";
 
 interface Props {
   isOpen: boolean;
@@ -82,12 +82,12 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const addColorToken = async () => {
     setIsSubmitting(true);
 
-    const body = colorTokenToDb({
+    const body: ColorToken = {
       name,
       value: color,
       // TODO: We could let the user add their own meta maybe
       meta: { source: "localStyles" },
-    });
+    };
 
     const result = await fetch("/api/colorTokens", {
       method: "POST",

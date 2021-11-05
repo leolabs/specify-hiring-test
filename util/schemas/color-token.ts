@@ -2,7 +2,6 @@ import * as yup from "yup";
 import { ColorToken as DbColorToken } from "@prisma/client";
 
 import { Color, colorSchema } from "./color";
-import { yupByte, yupFloat } from "./helpers";
 
 /**
  * A single, spec-compliant color token.
@@ -36,41 +35,11 @@ export const colorTokenSchema = yup.object().shape({
   meta: yup.object(),
 });
 
-/** A schema for colorToken objects that are stored in the database */
-export const dbColorTokenSchema = yup.object().shape({
-  name: yup.string().required(),
-  colorRed: yupByte.required(),
-  colorGreen: yupByte.required(),
-  colorBlue: yupByte.required(),
-  colorAlpha: yupFloat.required(),
-  meta: yup.object(),
-});
-
 /**
  * Converts the schema of a color token stored in the db into a spec-compliant object
  */
 export const dbToColorToken = (dbColorToken: DbColorToken): ColorToken => ({
   name: dbColorToken.name,
-  value: {
-    r: dbColorToken.colorRed,
-    g: dbColorToken.colorGreen,
-    b: dbColorToken.colorBlue,
-    a: dbColorToken.colorAlpha,
-  },
+  value: dbColorToken.value as any,
   meta: (dbColorToken.meta as any) ?? undefined,
 });
-
-export const colorTokenToDb = (
-  colorToken: ColorToken
-): Partial<DbColorToken> => {
-  colorTokenSchema.validateSync(colorToken);
-  const { name, value, meta } = colorToken;
-  return {
-    name,
-    colorRed: value.r,
-    colorGreen: value.g,
-    colorBlue: value.b,
-    colorAlpha: value.a,
-    meta: meta ?? undefined,
-  };
-};

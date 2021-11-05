@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { SingleColorToken } from ".";
 import { ApiResponse } from "../../../types/api";
 import prisma from "../../../util/prisma";
-import { dbColorTokenSchema } from "../../../util/schemas/color-token";
+import { colorTokenSchema } from "../../../util/schemas/color-token";
 import { validatePartialSchema } from "../../../util/schemas/helpers";
 
 /**
@@ -36,7 +36,7 @@ const patchColorToken = async (
 ) => {
   try {
     const data = req.body;
-    validatePartialSchema(dbColorTokenSchema, data);
+    validatePartialSchema(colorTokenSchema, data);
 
     const colorToken = await prisma.colorToken.update({
       where: { id: req.query.tokenId as string },
