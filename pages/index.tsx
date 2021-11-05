@@ -4,7 +4,7 @@ import { Container, Heading, Spacer } from "@chakra-ui/layout";
 import { AddIcon, DownloadIcon } from "@chakra-ui/icons";
 import { HStack, IconButton } from "@chakra-ui/react";
 
-import { TokenList } from "../components/token-list/token-list";
+import { ColorTokenList } from "../components/color-token-list/color-token-list";
 import { ExportModal } from "../components/export-modal/export-modal";
 import { NewTokenModal } from "../components/new-token-modal/new-token-modal";
 
@@ -34,7 +34,7 @@ export default function ColorTokens() {
         />
       </HStack>
 
-      <TokenList />
+      <ColorTokenList />
 
       <ExportModal
         isOpen={showExportModal}

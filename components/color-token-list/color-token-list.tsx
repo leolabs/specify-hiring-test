@@ -4,7 +4,7 @@ import { Center, Spinner, Alert, List } from "@chakra-ui/react";
 import { useColorTokens } from "../../hooks/use-color-tokens";
 import { ColorTokenRow } from "../color-token-row/color-token-row";
 
-export const TokenList: React.FC = () => {
+export const ColorTokenList: React.FC = () => {
   const { data, error, isValidating } = useColorTokens();
 
   if (error) {
