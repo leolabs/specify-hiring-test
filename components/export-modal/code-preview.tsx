@@ -15,7 +15,7 @@ export const CodePreview: React.FC<Props> = ({ format }) => {
   const { data, error, isValidating } = useExportPreview(format?.format);
 
   if (error) {
-    return <Alert>Error: {error.message}</Alert>;
+    return <Alert status="error">Error: {error.message}</Alert>;
   }
 
   if (data) {

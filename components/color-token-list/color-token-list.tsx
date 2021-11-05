@@ -8,7 +8,7 @@ export const ColorTokenList: React.FC = () => {
   const { data, error, isValidating } = useColorTokens();
 
   if (error) {
-    return <Alert>Error: {error.message}</Alert>;
+    return <Alert status="error">Error: {error.message}</Alert>;
   }
 
   if (data) {

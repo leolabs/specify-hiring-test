@@ -122,7 +122,11 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
         <ModalCloseButton />
 
         <ModalBody>
-          {error && <Alert mb="4">Error: {error}</Alert>}
+          {error && (
+            <Alert status="error" mb="4">
+              Error: {error}
+            </Alert>
+          )}
 
           <Input
             ref={nameRef}
