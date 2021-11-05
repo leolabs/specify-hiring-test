@@ -1,3 +1,6 @@
+import yup from "yup";
+import { yupByte, yupFloat } from "./helpers";
+
 /** A single RGBA color vector */
 export interface Color {
   r: number;
@@ -5,6 +8,13 @@ export interface Color {
   b: number;
   a: number;
 }
+
+export const colorSchema = yup.object().shape({
+  r: yupByte.required(),
+  g: yupByte.required(),
+  b: yupByte.required(),
+  a: yupFloat.required(),
+});
 
 /**
  * Converts a given color to an rgba string

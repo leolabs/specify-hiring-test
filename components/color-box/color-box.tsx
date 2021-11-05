@@ -3,7 +3,7 @@ import { useToast } from "@chakra-ui/toast";
 import { Tooltip } from "@chakra-ui/tooltip";
 import copy from "copy-to-clipboard";
 import React from "react";
-import { Color, colorToRgba } from "../../util/color";
+import { Color, colorToRgba } from "../../util/schemas/color";
 
 import checkers from "./transparent-checkers.svg";
 

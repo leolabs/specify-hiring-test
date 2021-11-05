@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { SingleColorToken } from ".";
 import { ApiResponse } from "../../../types/api";
 import prisma from "../../../util/prisma";
+import { dbColorTokenSchema } from "../../../util/schemas/color-token";
+import { validatePartialSchema } from "../../../util/schemas/helpers";
 
 /**
  * Returns a single color token as a JSON object.
@@ -33,6 +35,9 @@ const patchColorToken = async (
   res: ApiResponse<SingleColorToken>
 ) => {
   try {
+    const data = JSON.parse(req.body);
+    validatePartialSchema(dbColorTokenSchema, data);
+
     const colorToken = await prisma.colorToken.update({
       where: { id: req.query.tokenId as string },
       data: req.body,
