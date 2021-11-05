@@ -43,6 +43,7 @@ export default function ColorTokens() {
     <Container>
       <Head>
         <title>ACME Color Tokens</title>
+        <link rel="favicon" href="/favicon.ico" />
       </Head>
 
       <HStack>
