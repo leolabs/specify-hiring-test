@@ -11,7 +11,7 @@ This project is based on the Specify Hiring Tests. It's a simple web app that al
    - Hosted as Cloud Functions on Vercel
 - Database: PostgreSQL
    - Hosted locally for dev
-   - Hosted on Planetscale for prod
+   - Hosted on Heroku for production
 - Other noteworthy dependencies
    - `yup` for schema validation
    - `color` for parsing all kinds of color strings into an rgba object
