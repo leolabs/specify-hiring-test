@@ -1,5 +1,5 @@
 import { Parser, ParserFunction } from "..";
-import { colorToRgba } from "../../color";
+import { colorToRgba } from "../../schemas/color";
 import { ColorToken } from "../../schemas/color-token";
 import { indentLines, kebapCase } from "../../strings";
 

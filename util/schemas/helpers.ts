@@ -1,4 +1,4 @@
-import yup from "yup";
+import * as yup from "yup";
 
 /** An integer value from 0 to 255 */
 export const yupByte = yup.number().integer().min(0).max(255);

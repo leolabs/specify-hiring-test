@@ -1,5 +1,5 @@
 import { Parser, ParserFunction } from "..";
-import { colorToRgba } from "../../color";
+import { colorToRgba } from "../../schemas/color";
 import { camelCase, indentLines, uncapitalize } from "../../strings";
 
 // Example of a JSS file:

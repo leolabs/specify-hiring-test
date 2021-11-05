@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Text } from "@chakra-ui/layout";
-import { HStack, IconButton, Spacer } from "@chakra-ui/react";
+import { useSWRConfig } from "swr";
 import { ColorToken } from "@prisma/client";
+import { Text } from "@chakra-ui/layout";
+import { DeleteIcon } from "@chakra-ui/icons";
+import { HStack, IconButton, Spacer } from "@chakra-ui/react";
 
-import { colorToRgba } from "../../util/color";
+import { colorToRgba } from "../../util/schemas/color";
 import { dbToColorToken } from "../../util/schemas/color-token";
 import { ColorBox } from "../color-box/color-box";
-import { DeleteIcon } from "@chakra-ui/icons";
-import { useSWRConfig } from "swr";
 import { ColorTokenList } from "../../pages/api/colorTokens";
 import { DeleteDialog } from "./delete-dialog";
 

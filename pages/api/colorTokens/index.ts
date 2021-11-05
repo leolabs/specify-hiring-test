@@ -20,10 +20,10 @@ const createColorToken = async (
   res: ApiResponse<SingleColorToken>
 ) => {
   try {
-    const data = JSON.parse(req.body);
+    const data = req.body;
     dbColorTokenSchema.validateSync(data);
     const createdColorToken = await prisma.colorToken.create({
-      data: JSON.parse(req.body),
+      data,
     });
     res.status(200).json({ colorToken: createdColorToken });
   } catch (e) {

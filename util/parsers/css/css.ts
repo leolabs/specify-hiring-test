@@ -1,5 +1,5 @@
 import { Parser, ParserFunction } from "..";
-import { colorToRgba } from "../../color";
+import { colorToRgba } from "../../schemas/color";
 import { indentLines, kebapCase } from "../../strings";
 
 // Example of a CSS file:

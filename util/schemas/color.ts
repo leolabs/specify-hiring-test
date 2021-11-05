@@ -1,4 +1,4 @@
-import yup from "yup";
+import * as yup from "yup";
 import { yupByte, yupFloat } from "./helpers";
 
 /** A single RGBA color vector */
