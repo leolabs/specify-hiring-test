@@ -12,6 +12,13 @@ This project is based on the Specify Hiring Tests. It's a simple web app that al
 - Database: PostgreSQL
    - Hosted locally for dev
    - Hosted on Planetscale for prod
+- Other noteworthy dependencies
+   - `yup` for schema validation
+   - `color` for parsing all kinds of color strings into an rgba object
+   - `react-swr` for efficient data fetching and optimistic mutations
+   - `framer-motion` for sleek animations
+   - `react-colorful` for an accessible color picker
+   - `react-highlight`, based on `highlight.js` for highlighting the syntax of code previews
 
 ## Setup
 
@@ -41,8 +48,57 @@ yarn dev
 
 The project is now up and running on `localhost:3000`.
 
+## Testing
+
+The project uses Jest for unit tests. To run the tests, simply run:
+
+```sh
+yarn test
+```
+
+You can also run Jest in watch mode to automatically run tests as you make changes to the files:
+
+```sh
+yarn test --watch
+```
+
+## Project Structure
+
+The project shares code and types between the frontend and the backend. As modern web platforms offer atomic deploys, the frontend can be sure that it has the same types as the backend at all times.
+
+The API lives under `pages/api`. This path is specified by Next and all paths below it are mapped to their respective URLs. So, e.g. the file `pages/api/export/formats` is published under `/api/export/formats`. For more information, check out the [Next API docs](https://nextjs.org/docs/api-routes/introduction).
+
+The database schema is defined at `prisma/schema.prisma`. This is where we can add new models in the future, if we want to extend the app's functionality.
+
+The `util` folder contains utility functions that are shared between the frontend and the backend. These include the parsers, schema validation, and string transform tools, and more.
+
+The app's homepage lives under `pages/index.tsx`. For now, all it does is show the header, a few buttons, and the `ColorTokenList` component. As with the `pages/api` folder, Next maps the folder structure to a URL structure which makes it easy add new pages.
+
+The components are located in the `components` folder, grouped by area. So, for example, all components that have to do with the export dialog are located in the `export-modal` folder.
+
+The `hooks` folder contains custom React hooks. For now, these are just SWR hooks which handle the data fetching.
+
+The `styles` folder contains global styles. Most styles should be grouped with their components using `styled-jsx`, Next's own styling solution for React. The only stylesheet that I had to load globally is the theme for `react-highlight`.
+
+The `types` folder contains TS type definitions. For now, I just stored a convenience type for our API responses in there, but as the project grows, this is the place to put our own type definitions for untyped dependencies, type extensions, utility types, etc.
+
+And last, the `scripts` folder contains scripts that can be run in the local development environment. For now, it just contains the `insert-demo-data` script that you likely ran when you set up the environment on your own machine.
+
 ## API Documentation
-## Potential 
+
+The API documentation is available in the [API.md](API.md) file.
+
+## Potential Future Improvements
+
+If I had more time to work on the project, I would add the following improvements:
+
+- Ability to edit existing color tokens
+   - Currently, it is only possible to create and delete them
+- Authentication
+   - Currently, the web app and API can be used by everyone
+   - It might be beneficial to introduce a concept of users and API tokens
+- E2E UI tests using Cypress
+   - I have already added unit and integration tests using Jest, but they don't test the actual UX
 
 ----
 
