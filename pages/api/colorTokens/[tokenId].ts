@@ -40,7 +40,7 @@ const patchColorToken = async (
 
     const colorToken = await prisma.colorToken.update({
       where: { id: req.query.tokenId as string },
-      data,
+      data: { ...data, updatedAt: new Date() },
     });
 
     if (!colorToken) {
