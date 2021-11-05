@@ -14,17 +14,19 @@ Example response:
 {
   "colorTokens": [
     {
-      "id": "cjld2cjxh0000qzrmn831i7rn",
-      "name": "Colors/Accent",
-      "colorRed": 87,
-      "colorGreen": 124,
-      "colorBlue": 254,
-      "colorAlpha": 1,
-      "metadata": {
+      "id": "ckvmcntv00009950hocxmvh5i",
+      "name": "Colors/Red",
+      "value": {
+        "a": 1,
+        "b": 63,
+        "g": 72,
+        "r": 245
+      },
+      "meta": {
         "source": "localStyles"
       },
-      "createdAt": "2021-11-04T13:38:10.475Z",
-      "updatedAt": "2021-11-04T13:38:10.475Z"
+      "createdAt": "2021-11-05T12:24:17.388Z",
+      "updatedAt": "2021-11-05T12:24:17.388Z"
     }
   ]
 }
@@ -39,11 +41,13 @@ Example request:
 ```json
 {
   "name": "Colors/Accent",
-  "colorRed": 87,
-  "colorGreen": 124,
-  "colorBlue": 254,
-  "colorAlpha": 1,
-  "metadata": {
+  "value": {
+    "a": 1,
+    "b": 185,
+    "g": 32,
+    "r": 139
+  },
+  "meta": {
     "source": "localStyles"
   },
 }
@@ -54,17 +58,19 @@ Example response:
 ```json
 {
   "colorToken": {
-    "id": "cjld2cjxh0000qzrmn831i7rn",
+    "id": "ckvmct83v0014dw0hvigoia52",
     "name": "Colors/Accent",
-    "colorRed": 87,
-    "colorGreen": 124,
-    "colorBlue": 254,
-    "colorAlpha": 1,
+    "value": {
+      "a": 1,
+      "b": 185,
+      "g": 32,
+      "r": 139
+    },
     "meta": {
       "source": "localStyles"
     },
-    "createdAt": "2021-11-04T16:17:37.436Z",
-    "updatedAt": "2021-11-04T16:17:37.436Z"
+    "createdAt": "2021-11-05T12:28:29.131Z",
+    "updatedAt": "2021-11-05T12:28:29.131Z"
   }
 }
 ```
@@ -78,17 +84,19 @@ Example response:
 ```json
 {
   "colorToken": {
-    "id": "cjld2cjxh0000qzrmn831i7rn",
+    "id": "ckvmct83v0014dw0hvigoia52",
     "name": "Colors/Accent",
-    "colorRed": 87,
-    "colorGreen": 124,
-    "colorBlue": 254,
-    "colorAlpha": 1,
-    "metadata": {
+    "value": {
+      "a": 1,
+      "b": 185,
+      "g": 32,
+      "r": 139
+    },
+    "meta": {
       "source": "localStyles"
     },
-    "createdAt": "2021-11-04T13:38:10.475Z",
-    "updatedAt": "2021-11-04T13:38:10.475Z"
+    "createdAt": "2021-11-05T12:28:29.131Z",
+    "updatedAt": "2021-11-05T12:28:29.131Z"
   }
 }
 ```
@@ -110,17 +118,19 @@ Example response:
 ```json
 {
   "colorToken": {
-    "id": "cjld2cjxh0000qzrmn831i7rn",
-    "name": "Colors/NewAccent",
-    "colorRed": 87,
-    "colorGreen": 124,
-    "colorBlue": 254,
-    "colorAlpha": 1,
-    "metadata": {
+    "id": "ckvmct83v0014dw0hvigoia52",
+    "name": "Colors/Accent",
+    "value": {
+      "a": 1,
+      "b": 185,
+      "g": 32,
+      "r": 139
+    },
+    "meta": {
       "source": "localStyles"
     },
-    "createdAt": "2021-11-04T13:38:10.475Z",
-    "updatedAt": "2021-11-04T13:38:10.475Z"
+    "createdAt": "2021-11-05T12:28:29.131Z",
+    "updatedAt": "2021-11-05T12:28:29.131Z"
   }
 }
 ```
@@ -134,17 +144,19 @@ Example response:
 ```json
 {
   "colorToken": {
-    "id": "cjld2cjxh0000qzrmn831i7rn",
-    "name": "Colors/NewAccent",
-    "colorRed": 87,
-    "colorGreen": 124,
-    "colorBlue": 254,
-    "colorAlpha": 1,
-    "metadata": {
+    "id": "ckvmct83v0014dw0hvigoia52",
+    "name": "Colors/Accent",
+    "value": {
+      "a": 1,
+      "b": 185,
+      "g": 32,
+      "r": 139
+    },
+    "meta": {
       "source": "localStyles"
     },
-    "createdAt": "2021-11-04T13:38:10.475Z",
-    "updatedAt": "2021-11-04T13:38:10.475Z"
+    "createdAt": "2021-11-05T12:28:29.131Z",
+    "updatedAt": "2021-11-05T12:28:29.131Z"
   }
 }
 ```
