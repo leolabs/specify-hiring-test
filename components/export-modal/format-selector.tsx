@@ -23,7 +23,7 @@ export const FormatSelector: React.FC<Props> = ({
     if (data) {
       onFormatChange(data.formats[0]);
     }
-  }, [data]);
+  }, [data, onFormatChange]);
 
   if (error) {
     return <Alert>Error: {error.message}</Alert>;
