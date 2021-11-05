@@ -31,10 +31,7 @@ const INITIAL_COLOR = { r: 0, g: 0, b: 0, a: 1 };
 
 export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const toast = useToast();
-  const {
-    data: { colorTokens },
-    mutate,
-  } = useColorTokens();
+  const { data, mutate } = useColorTokens();
 
   const nameRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState(INITIAL_NAME);
@@ -49,7 +46,7 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const isDuplicateName = colorTokens.some((t) => t.name === name);
+  const isDuplicateName = data?.colorTokens.some((t) => t.name === name);
 
   useEffect(() => {
     if (!isOpen) {
