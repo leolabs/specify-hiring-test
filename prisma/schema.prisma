@@ -12,7 +12,7 @@ datasource db {
 
 model ColorToken {
   id         String   @id @default(cuid())
-  name       String
+  name       String   @unique
   colorRed   Int
   colorGreen Int
   colorBlue  Int

@@ -31,7 +31,10 @@ const INITIAL_COLOR = { r: 0, g: 0, b: 0, a: 1 };
 
 export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const toast = useToast();
-  const { mutate } = useColorTokens();
+  const {
+    data: { colorTokens },
+    mutate,
+  } = useColorTokens();
 
   const nameRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState(INITIAL_NAME);
@@ -45,6 +48,8 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   // State related to adding the token
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const isDuplicateName = colorTokens.some((t) => t.name === name);
 
   useEffect(() => {
     if (!isOpen) {
@@ -133,6 +138,7 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Token Name (e.g. Colors/Accent)"
+            isInvalid={isDuplicateName}
             mb="4"
           />
           <ColorPicker color={color} onChange={setColor} />
@@ -161,7 +167,7 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
           <Button
             onClick={addColorToken}
             isLoading={isSubmitting}
-            isDisabled={isSubmitting || !name}
+            isDisabled={isSubmitting || !name || isDuplicateName}
             colorScheme="blue"
           >
             Add Color Token
