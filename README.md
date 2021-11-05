@@ -110,6 +110,8 @@ If I had more time to work on the project, I would add the following improvement
 - Authentication
    - Currently, the web app and API can be used by everyone
    - It might be beneficial to introduce a concept of users and API tokens
+- Lazy-loading of dialogs and other elements that aren't visible on initial page load
+   - We're currently averaging around 500 kB of JS loaded on first page load, that needs to be improved for better user experience on slower connections
 - E2E UI tests using Cypress
    - I have already added unit and integration tests using Jest, but they don't test the actual UX
 - Storybook for documenting and testing components in isolation
