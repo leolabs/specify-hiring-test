@@ -35,12 +35,12 @@ const patchColorToken = async (
   res: ApiResponse<SingleColorToken>
 ) => {
   try {
-    const data = JSON.parse(req.body);
+    const data = req.body;
     validatePartialSchema(dbColorTokenSchema, data);
 
     const colorToken = await prisma.colorToken.update({
       where: { id: req.query.tokenId as string },
-      data: req.body,
+      data,
     });
 
     if (!colorToken) {
