@@ -20,7 +20,9 @@ export default function ColorTokens() {
       </Head>
 
       <HStack>
-        <Heading py="8">ACME Color Tokens</Heading>
+        <Heading fontSize={["2xl", "3xl"]} py="8">
+          ACME Color Tokens
+        </Heading>
         <Spacer />
         <IconButton
           onClick={() => setShowCreateModal(true)}

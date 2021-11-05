@@ -42,6 +42,7 @@ export const ColorBox: React.FC<Props> = ({ color }) => {
           border-radius: 0.4rem;
           background: #eee url(${checkers.src});
           background-size: 11px;
+          flex-shrink: 0;
         }
       `}</style>
     </div>

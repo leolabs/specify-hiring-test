@@ -35,7 +35,8 @@ export const ColorTokenRow: React.FC<RowProps> = ({ colorToken }) => {
   return (
     <HStack
       as="li"
-      p="4"
+      px="4"
+      h="16"
       mb="4"
       bg="card.bg"
       borderWidth="1px"
@@ -44,10 +45,12 @@ export const ColorTokenRow: React.FC<RowProps> = ({ colorToken }) => {
       align="center"
     >
       <ColorBox color={value} />
-      <Text pl="2" fontWeight="bold">
-        {colorToken.name}
-      </Text>
-      <Text opacity="0.5">{colorToRgba(value)}</Text>
+      <HStack flexWrap="wrap">
+        <Text pl="2" fontWeight="bold">
+          {colorToken.name}
+        </Text>
+        <Text opacity="0.5">{colorToRgba(value)}</Text>
+      </HStack>
       <Spacer />
       <IconButton
         onClick={() => setShowDeleteDialog(true)}
