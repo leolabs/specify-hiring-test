@@ -15,6 +15,6 @@ export const validatePartialSchema = (
   data: any
 ) => {
   for (const key in data) {
-    schema.validateSyncAt(key, data[key]);
+    schema.validateSyncAt(key, data);
   }
 };
