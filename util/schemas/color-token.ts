@@ -1,4 +1,4 @@
-import yup from "yup";
+import * as yup from "yup";
 import { ColorToken as DbColorToken } from "@prisma/client";
 
 import { Color, colorSchema } from "./color";
@@ -63,7 +63,7 @@ export const dbToColorToken = (dbColorToken: DbColorToken): ColorToken => ({
 export const colorTokenToDb = (
   colorToken: ColorToken
 ): Partial<DbColorToken> => {
-  const res = colorTokenSchema.validateSync(colorToken);
+  colorTokenSchema.validateSync(colorToken);
   const { name, value, meta } = colorToken;
   return {
     name,

@@ -13,11 +13,13 @@ import {
 import { useToast } from "@chakra-ui/toast";
 import { RgbaColor } from "react-colorful";
 import { Input } from "@chakra-ui/input";
+import { Alert } from "@chakra-ui/alert";
+
 import { ColorPicker } from "./color-picker";
-import { colorToRgba } from "../../util/color";
+import { colorToRgba } from "../../util/schemas/color";
 import { useColorTokens } from "../../hooks/use-color-tokens";
 import { ApiError } from "../../types/api";
-import { Alert } from "@chakra-ui/alert";
+import { colorTokenToDb } from "../../util/schemas/color-token";
 
 interface Props {
   isOpen: boolean;
@@ -71,20 +73,23 @@ export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
     }
   };
 
+  /** Submits the new color to our API and mutates the schema */
   const addColorToken = async () => {
     setIsSubmitting(true);
 
+    const body = colorTokenToDb({
+      name,
+      value: color,
+      // TODO: We could let the user add their own meta maybe
+      meta: { source: "localStyles" },
+    });
+
     const result = await fetch("/api/colorTokens", {
       method: "POST",
-      body: JSON.stringify({
-        name,
-        colorRed: color.r,
-        colorGreen: color.g,
-        colorBlue: color.b,
-        colorAlpha: color.a,
-        // TODO: We could let the user add their own meta maybe
-        meta: { source: "localStyles" },
-      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     });
 
     setIsSubmitting(false);
