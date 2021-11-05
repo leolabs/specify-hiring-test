@@ -1,3 +1,53 @@
+# ACME Color Tokens Web App
+
+This project is based on the Specify Hiring Tests. It's a simple web app that allows users to store, access, and export color tokens for their design system.
+
+## Used Technologies
+
+- Frontend: React + NextJS
+   - Chakra UI for pre-styled components
+   - Hosted on Vercel for production
+- Backend: Prisma + NextJS
+   - Hosted as Cloud Functions on Vercel
+- Database: PostgreSQL
+   - Hosted locally for dev
+   - Hosted on Planetscale for prod
+
+## Setup
+
+To setup your local dev environment, make sure that you have Node, Yarn, and Docker installed. First, install the app's dependencies:
+
+```sh
+yarn
+```
+
+To start the local database, run:
+
+```sh
+docker-compose up
+```
+
+You can then fill the database with test data from the seeds.json file:
+
+```sh
+yarn insert-demo-data
+```
+
+To start the project, run:
+
+```sh
+yarn dev
+```
+
+The project is now up and running on `localhost:3000`.
+
+## API Documentation
+## Potential 
+
+----
+
+These are the original requirements:
+
 # Specify Hiring Tests
 
 ## About Specify
@@ -47,11 +97,13 @@ You can create a REST API or a GraphQL API.
 Using any language and any framework, you will create an UI the ACME organization will use.
 
 Your solution should allow to:
+
 - See all the tokens (**name** + **value**) coming from the API you have to create.
 - Create a token and then see it in the listing
 - Visualize the code the developer will export. The generated code should include all the tokens, not just one.
 
 The code will be displayable and downloadable in three formats:
+
 - [CSS Custom properties](https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties) within the `:root` selector
 - [SCSS Map](https://sass-lang.com/documentation/values/maps#look-up-a-value)
 - JS as a simple exported object that can be used in [JSS](https://cssinjs.org/jss-syntax/?v=v10.4.0#basic-syntax)

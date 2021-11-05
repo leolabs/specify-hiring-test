@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
+/** This is the client that we use in our API */
 let prisma: PrismaClient | null = null;
 
 if (process.env.NODE_ENV === "production") {
