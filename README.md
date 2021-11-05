@@ -106,11 +106,15 @@ If I had more time to work on the project, I would add the following improvement
 
 - Ability to edit existing color tokens
    - Currently, it is only possible to create and delete them
+   - The API for patching existing color tokens is already implemented
 - Authentication
    - Currently, the web app and API can be used by everyone
    - It might be beneficial to introduce a concept of users and API tokens
 - E2E UI tests using Cypress
    - I have already added unit and integration tests using Jest, but they don't test the actual UX
+- Storybook for documenting and testing components in isolation
+   - This will become important as the project (and the team) grows so that everyone has an overview of the available components
+
 
 ----
 
