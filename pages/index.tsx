@@ -1,39 +1,12 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import { Center, Container, Heading, List, Spacer } from "@chakra-ui/layout";
-import { Spinner } from "@chakra-ui/spinner";
+import { Container, Heading, Spacer } from "@chakra-ui/layout";
 import { AddIcon, DownloadIcon } from "@chakra-ui/icons";
-import { Alert } from "@chakra-ui/alert";
 import { HStack, IconButton } from "@chakra-ui/react";
 
-import { ColorTokenRow } from "../components/color-token-row/color-token-row";
+import { TokenList } from "../components/token-list/token-list";
 import { ExportModal } from "../components/export-modal/export-modal";
 import { NewTokenModal } from "../components/new-token-modal/new-token-modal";
-import { useColorTokens } from "../hooks/use-color-tokens";
-
-const TokenList: React.FC = () => {
-  const { data, error, isValidating } = useColorTokens();
-
-  if (isValidating) {
-    return (
-      <Center h="100px">
-        <Spinner size="xl" />
-      </Center>
-    );
-  }
-
-  if (error) {
-    return <Alert>Error: {error.message}</Alert>;
-  }
-
-  return (
-    <List>
-      {data.colorTokens.map((t) => (
-        <ColorTokenRow key={t.id} colorToken={t} />
-      ))}
-    </List>
-  );
-};
 
 export default function ColorTokens() {
   const [showExportModal, setShowExportModal] = useState(false);
