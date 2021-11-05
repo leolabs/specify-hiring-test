@@ -34,10 +34,16 @@ To start the local database, run:
 docker-compose up
 ```
 
-You can then fill the database with test data from the seeds.json file:
+Then create a `.env` file in the project directory that contains the credentials to your local database. This should look as follows:
 
 ```sh
-yarn insert-demo-data
+DATABASE_URL=postgresql://user:password@localhost:5432/default?schema=public
+```
+
+To get started, let Prisma create the required tables in your local database and insert some test data from the `seeds.json` file:
+
+```sh
+yarn prisma migrate deploy && yarn insert-demo-data
 ```
 
 To start the project, run:
