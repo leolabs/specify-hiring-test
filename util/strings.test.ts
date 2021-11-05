@@ -68,6 +68,6 @@ describe("capitalize", () => {
 
 describe("uncapitalize", () => {
   it("should lower-case the first letter of a string", () => {
-    expect(uncapitalize("Test")).toBe("Test");
+    expect(uncapitalize("Test")).toBe("test");
   });
 });
