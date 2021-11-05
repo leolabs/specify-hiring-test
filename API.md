@@ -19,7 +19,7 @@ Example response:
       "colorRed": 87,
       "colorGreen": 124,
       "colorBlue": 254,
-      "colorAlpha": "1",
+      "colorAlpha": 1,
       "metadata": {
         "source": "localStyles"
       },
@@ -38,15 +38,15 @@ Example request:
 
 ```json
 {
-    "name": "Colors/Accent",
-    "colorRed": 87,
-    "colorGreen": 124,
-    "colorBlue": 254,
-    "colorAlpha": 1,
-    "metadata": {
-      "source": "localStyles"
-    },
-  }
+  "name": "Colors/Accent",
+  "colorRed": 87,
+  "colorGreen": 124,
+  "colorBlue": 254,
+  "colorAlpha": 1,
+  "metadata": {
+    "source": "localStyles"
+  },
+}
 ```
 
 Example response:
@@ -83,7 +83,7 @@ Example response:
     "colorRed": 87,
     "colorGreen": 124,
     "colorBlue": 254,
-    "colorAlpha": "1",
+    "colorAlpha": 1,
     "metadata": {
       "source": "localStyles"
     },
@@ -115,7 +115,7 @@ Example response:
     "colorRed": 87,
     "colorGreen": 124,
     "colorBlue": 254,
-    "colorAlpha": "1",
+    "colorAlpha": 1,
     "metadata": {
       "source": "localStyles"
     },
@@ -139,7 +139,7 @@ Example response:
     "colorRed": 87,
     "colorGreen": 124,
     "colorBlue": 254,
-    "colorAlpha": "1",
+    "colorAlpha": 1,
     "metadata": {
       "source": "localStyles"
     },
