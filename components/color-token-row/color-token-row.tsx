@@ -15,6 +15,10 @@ interface RowProps {
   colorToken: ColorToken;
 }
 
+/**
+ * A single row in the color token list.
+ * Displays a preview, name, rgba value and delete button.
+ */
 export const ColorTokenRow: React.FC<RowProps> = ({ colorToken }) => {
   const { mutate } = useSWRConfig();
   const { value } = dbToColorToken(colorToken);

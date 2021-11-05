@@ -29,6 +29,9 @@ interface Props {
 const INITIAL_NAME = "";
 const INITIAL_COLOR = { r: 0, g: 0, b: 0, a: 1 };
 
+/**
+ * A modal for creating a new color token.
+ */
 export const NewTokenModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const toast = useToast();
   const { data, mutate } = useColorTokens();

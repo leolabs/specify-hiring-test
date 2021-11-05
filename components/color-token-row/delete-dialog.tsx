@@ -17,6 +17,9 @@ interface DeleteProps {
   onCancel: () => void;
 }
 
+/**
+ * A dialog for deleting a color token.
+ */
 export const DeleteDialog: React.FC<DeleteProps> = ({
   colorToken,
   isOpen,

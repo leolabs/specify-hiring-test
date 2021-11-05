@@ -12,6 +12,9 @@ interface Props {
   onFormatChange: (format: ParserFormat) => void;
 }
 
+/**
+ * Fetches the export formats from the API and displays them in a button group.
+ */
 export const FormatSelector: React.FC<Props> = ({
   selectedFormat,
   onFormatChange,

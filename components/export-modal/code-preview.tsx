@@ -11,6 +11,9 @@ interface Props {
   format: ParserFormat;
 }
 
+/**
+ * Fetches and displays the exported code in the specified format.
+ */
 export const CodePreview: React.FC<Props> = ({ format }) => {
   const { data, error, isValidating } = useExportPreview(format?.format);
 

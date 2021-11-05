@@ -39,6 +39,9 @@ const downloadFormat = (format: string) => {
   downloadLink.click();
 };
 
+/**
+ * Displays a modal that allows the user to export the color tokens as code.
+ */
 export const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const toast = useToast();
   const [selectedFormat, setSelectedFormat] = useState<ParserFormat | null>(

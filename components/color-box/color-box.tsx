@@ -11,6 +11,9 @@ interface Props {
   color: Color;
 }
 
+/**
+ * Displays a single color and allows it to be copied to the clipboard.
+ */
 export const ColorBox: React.FC<Props> = ({ color }) => {
   const toast = useToast();
   const rgba = colorToRgba(color);
